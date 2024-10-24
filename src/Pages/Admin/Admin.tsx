@@ -17,6 +17,11 @@ const Admin = () => {
         }
     };
 
+    const logOut = () => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+    }
+
     const saveItem = async () => {
         if (!name || !image) {
             alert("Name and image are required!");
@@ -78,6 +83,7 @@ const Admin = () => {
                 onChange={handleFileChange}
             />
             <button onClick={saveItem}>Save Item</button>
+            <button onClick={logOut}>log out</button>
         </section>
     );
 };
